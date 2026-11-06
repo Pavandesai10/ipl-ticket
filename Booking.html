@@ -1,0 +1,90 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IPL Ticket Booking</title>
+</head>
+<body>
+
+    <h1>IPL Ticket Booking Form</h1>
+
+    <form>
+
+        <label>Name:</label>
+        <input type="text" name="name" required minlength="3">
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        <br><br>
+
+        <label>Phone Number:</label>
+        <input type="tel" name="phone" pattern="[0-9]{10}" required>
+        <br><br>
+
+        <label>Select Match:</label>
+        <select name="match" required>
+            <option value="">Choose Match</option>
+            <option>RCB vs CSK</option>
+            <option>MI vs KKR</option>
+            <option>SRH vs RCB</option>
+            <option>DC vs MI</option>
+        </select>
+        <br><br>
+
+        <label>Stand Category:</label>
+    <select name="stand" required>
+    <option value="">Choose Stand</option>
+    <option value="General">General</option>
+    <option value="Premium">Premium</option>
+    <option value="VIP">VIP</option>
+</select>
+<br><br>
+
+        <label>Number of Tickets:</label>
+        <input type="number" name="tickets" min="1" max="10" required>
+        <br><br>
+
+        <label>Booking Preference:</label>
+        <input type="radio" name="preference" value="Regular" required> Regular
+        <input type="radio" name="preference" value="Family"> Family
+        <br><br>
+
+        <input type="checkbox" required>
+        I agree to the booking terms.
+        <br><br>
+
+        <p>Ticket Price: ₹1500 per ticket</p>
+        <p>Total Price: ₹<span id="total">0</span></p>
+        <button type="submit">Book Tickets</button>
+        <button type="reset">Reset</button>
+
+<script>
+
+    const tickets = document.querySelector('[name="tickets"]');
+    const stand = document.querySelector('[name="stand"]');
+    const total = document.getElementById("total");
+
+    function calculatePrice() {
+        let price = 0;
+
+        switch (stand.value) {
+            case "General":
+                price = 1500;
+                break;
+            case "Premium":
+                price = 2500;
+                break;
+            case "VIP":
+                price = 4000;
+                break;
+        }
+
+        total.textContent = tickets.value * price;
+    }
+
+    tickets.addEventListener("input", calculatePrice);
+    stand.addEventListener("change", calculatePrice);
+
+    calculatePrice();
+</script>
