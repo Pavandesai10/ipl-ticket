@@ -17,6 +17,7 @@
         body {
             background: #f4f6fb;
             color: #222;
+            line-height: 1.6;
         }
 
         header {
@@ -27,6 +28,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 15px;
         }
 
         header h2 {
@@ -36,92 +38,100 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin: 10px;
-            font-weight: bold;
+            margin: 0 10px;
         }
 
         nav a:hover {
             color: #ffb800;
         }
 
+        section {
+            padding: 45px 8%;
+            scroll-margin-top: 20px;
+        }
+
         .hero {
-            background: linear-gradient(120deg, #101b3f, #173e8c);
+            background: #172653;
             color: white;
             text-align: center;
-            padding: 100px 20px;
+            padding: 75px 20px;
         }
 
         .hero h1 {
-            font-size: 42px;
-            margin-bottom: 20px;
+            font-size: 38px;
+            margin-bottom: 15px;
         }
 
         .hero p {
-            font-size: 18px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .btn {
+            display: inline-block;
             background: #ffb800;
             color: #101b3f;
-            padding: 12px 25px;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             text-decoration: none;
-            font-weight: bold;
             cursor: pointer;
-            display: inline-block;
-            margin: 5px;
+            font-weight: bold;
         }
 
-        section {
-            padding: 50px 8%;
+        .btn:hover {
+            background: #e5a500;
         }
 
-        section h2 {
-            text-align: center;
-            margin-bottom: 30px;
+        h2 {
             color: #101b3f;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
-        .about, .guidelines {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
+        .about {
+            max-width: 900px;
+            margin: auto;
         }
 
-        .about ul {
-            margin: 15px 30px;
-            line-height: 2;
+        .about h3 {
+            color: #101b3f;
+            margin: 15px 0;
+        }
+
+        ul {
+            padding-left: 25px;
         }
 
         .filter {
             margin-bottom: 20px;
         }
 
-        select, input {
-            padding: 12px;
+        .filter select {
             width: 100%;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 12px;
+            margin-top: 8px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             background: white;
-        }
-
-        th, td {
-            padding: 15px;
-            border: 1px solid #ddd;
-            text-align: center;
+            margin-top: 15px;
         }
 
         th {
             background: #101b3f;
             color: white;
+        }
+
+        th, td {
+            padding: 13px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:hover {
+            background: #f1f3f8;
         }
 
         .booking-container {
@@ -137,6 +147,30 @@
             box-shadow: 0 3px 10px #ddd;
         }
 
+        .booking-form h3 {
+            color: #101b3f;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 11px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .booking-form button {
+            margin-top: 20px;
+            width: 100%;
+        }
+
         .summary {
             line-height: 2.2;
         }
@@ -146,21 +180,27 @@
             margin-bottom: 15px;
         }
 
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+            color: #101b3f;
+        }
+
         .guideline-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
-        .card {
+        .guideline-card {
             background: white;
-            padding: 25px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 3px 10px #ddd;
         }
 
-        .card h3 {
-            color: #173e8c;
+        .guideline-card h3 {
+            color: #101b3f;
             margin-bottom: 10px;
         }
 
@@ -168,13 +208,17 @@
             background: #101b3f;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
         }
 
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
-                gap: 15px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
             }
 
             .booking-container,
@@ -191,18 +235,19 @@
             }
 
             th, td {
-                padding: 8px;
+                padding: 8px 4px;
             }
         }
     </style>
-    <link rel=""stylesheet"" href=""style.css."">
 </head>
 
 <body>
-<a href="booking.html">Book Ticket</a>
+
 <header>
     <h2>🏏 IPL 2026</h2>
+
     <nav>
+        <a href="#about">About</a>
         <a href="#matches">Matches</a>
         <a href="#booking">Book Ticket</a>
         <a href="#mybookings">My Bookings</a>
@@ -213,6 +258,7 @@
 <section class="hero">
     <h1>Experience The Stadium Energy Live!</h1>
     <p>Feel the excitement. Cheer for your team. Be part of IPL!</p>
+
     <a href="#matches" class="btn">View Schedule</a>
     <a href="#booking" class="btn">Book Ticket</a>
 </section>
@@ -220,9 +266,11 @@
 <section id="about">
     <div class="about">
         <h2>About IPL 2026</h2>
+
         <p>
-            The Indian Premier League is one of the world's most exciting
-            cricket tournaments, bringing together top teams and players.
+            The Indian Premier League is one of the world's most
+            exciting cricket tournaments, bringing together
+            top teams and players.
         </p>
 
         <h3>Popular Teams</h3>
@@ -249,59 +297,73 @@
 
     <div class="filter">
         <label for="teamFilter">Filter by Team:</label>
+
         <select id="teamFilter">
-            <option>All Teams</option>
-            <option>RCB</option>
-            <option>CSK</option>
-            <option>MI</option>
-            <option>KKR</option>
+            <option value="All">All Teams</option>
+            <option value="RCB">RCB</option>
+            <option value="CSK">CSK</option>
+            <option value="MI">MI</option>
+            <option value="KKR">KKR</option>
         </select>
     </div>
 
     <table>
-        <tr>
-            <th>Match No.</th>
-            <th>Teams</th>
-            <th>Date & Time</th>
-            <th>Venue</th>
-            <th>General</th>
-            <th>Premium</th>
-            <th>VIP</th>
-            <th>Action</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Match No.</th>
+                <th>Teams</th>
+                <th>Date & Time</th>
+                <th>Venue</th>
+                <th>General</th>
+                <th>Premium</th>
+                <th>VIP</th>
+                <th>Action</th>
+            </tr>
+        </thead>
 
-        <tr>
-            <td>01</td>
-            <td>RCB vs CSK</td>
-            <td>15 April 2026, 7:30 PM</td>
-            <td>Bengaluru</td>
-            <td>₹1500</td>
-            <td>₹3500</td>
-            <td>₹7000</td>
-            <td><a href="#booking" class="btn">Book</a></td>
-        </tr>
+        <tbody id="matchRows">
+            <tr>
+                <td>01</td>
+                <td>RCB vs CSK</td>
+                <td>15 April 2026, 7:30 PM</td>
+                <td>Bengaluru</td>
+                <td>₹1500</td>
+                <td>₹3500</td>
+                <td>₹7000</td>
+                <td>
+                    <a href="#booking" class="btn"
+                       onclick="scrollToBooking(); return false;">Book</a>
+                </td>
+            </tr>
 
-        <tr>
-            <td>02</td>
-            <td>MI vs KKR</td>
-            <td>18 April 2026, 7:30 PM</td>
-            <td>Mumbai</td>
-            <td>₹1200</td>
-            <td>₹3000</td>
-            <td>₹6000</td>
-            <td><a href="#booking" class="btn">Book</a></td>
-        </tr>
+            <tr>
+                <td>02</td>
+                <td>MI vs KKR</td>
+                <td>18 April 2026, 7:30 PM</td>
+                <td>Mumbai</td>
+                <td>₹1200</td>
+                <td>₹3000</td>
+                <td>₹6000</td>
+                <td>
+                    <a href="#booking" class="btn"
+                       onclick="scrollToBooking(); return false;">Book</a>
+                </td>
+            </tr>
 
-        <tr>
-            <td>03</td>
-            <td>CSK vs MI</td>
-            <td>20 April 2026, 3:30 PM</td>
-            <td>Chennai</td>
-            <td>₹1000</td>
-            <td>₹2500</td>
-            <td>₹5000</td>
-            <td><a href="#booking" class="btn">Book</a></td>
-        </tr>
+            <tr>
+                <td>03</td>
+                <td>CSK vs MI</td>
+                <td>20 April 2026, 3:30 PM</td>
+                <td>Chennai</td>
+                <td>₹1000</td>
+                <td>₹2500</td>
+                <td>₹5000</td>
+                <td>
+                    <a href="#booking" class="btn"
+                       onclick="scrollToBooking(); return false;">Book</a>
+                </td>
+            </tr>
+        </tbody>
     </table>
 </section>
 
@@ -314,46 +376,67 @@
             <h3>Ticket Booking Form</h3>
 
             <form id="bookingForm">
-                <label>Match</label>
+
+                <label for="match">Match</label>
                 <select id="match" required>
-                    <option>Select Match</option>
-                    <option>RCB vs CSK</option>
-                    <option>MI vs KKR</option>
-                    <option>CSK vs MI</option>
+                    <option value="match1">RCB vs CSK</option>
+                    <option value="match2">MI vs KKR</option>
+                    <option value="match3">CSK vs MI</option>
                 </select>
 
-                <label>Stand Category</label>
+                <label for="category">Stand Category</label>
                 <select id="category" required>
-                    <option value="">Select Category</option>
                     <option value="general">General</option>
                     <option value="premium">Premium</option>
                     <option value="vip">VIP</option>
                 </select>
 
-                <label>Number of Tickets</label>
-                <input id="quantity" type="number" min="1" max="10" placeholder="Enter number of tickets" required>
+                <label for="quantity">Number of Tickets</label>
+                <input type="number" id="quantity"
+                       min="1" max="10" value="1" required>
 
-                <label>Full Name</label>
-                <input id="name" type="text" placeholder="Enter your full name" required>
+                <label for="name">Full Name</label>
+                <input type="text" id="name"
+                       placeholder="Enter your full name" required>
 
-                <label>Email</label>
-                <input id="email" type="email" placeholder="Enter your email" required>
+                <label for="email">Email</label>
+                <input type="email" id="email"
+                       placeholder="Enter your email" required>
 
-                <label>Phone Number</label>
-                <input id="phone" type="text" placeholder="Enter your phone number" required>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone"
+                       placeholder="Enter your phone number"
+                       pattern="[0-9]{10}" required>
 
-                <button type="submit" class="btn">Confirm Booking</button>
+                <button type="submit" class="btn">
+                    Confirm Booking
+                </button>
+
             </form>
         </div>
 
         <div class="summary">
             <h3>Booking Summary</h3>
-            <p>Match: <span id="summaryMatch">Not Selected</span></p>
-<p>Stand: <span id="summaryCategory">General</span></p>
-<p>Ticket Price: <span id="summaryPrice">₹1500</span></p>
-<p>Quantity: <span id="summaryQuantity">1</span></p>
-<p>Total Amount: <span id="summaryTotal">₹1500</span></p>
 
+            <p>Match:
+                <span id="summaryMatch">RCB vs CSK</span>
+            </p>
+
+            <p>Stand:
+                <span id="summaryCategory">General</span>
+            </p>
+
+            <p>Ticket Price:
+                <span id="summaryPrice">₹2000</span>
+            </p>
+
+            <p>Quantity:
+                <span id="summaryQuantity">1</span>
+            </p>
+
+            <p class="total">Total Amount:
+                <span id="summaryTotal">₹2000</span>
+            </p>
         </div>
 
     </div>
@@ -362,39 +445,29 @@
 <section id="mybookings">
     <h2>My Ticket Bookings</h2>
 
-    <table id="bookingsTable">
-        <tr>
-            <th>Booking ID</th>
-            <th>Match</th>
-            <th>Stand</th>
-            <th>Tickets</th>
-            <th>Total Amount</th>
-        </tr>
-    </table>
-
-    <p style="text-align:center; margin-top:20px;">
-        No bookings available yet.
-    </p>
+    <div class="booking-form" id="bookingList">
+        <p>No bookings yet.</p>
+    </div>
 </section>
 
 <section id="guidelines">
-    <h2>Ticket Booking Guidelines</h2>
+    <h2>Booking Guidelines</h2>
 
     <div class="guideline-cards">
 
-        <div class="card">
-            <h3>🎟️ Ticket Verification</h3>
-            <p>Keep your ticket ready for verification at the stadium entrance.</p>
+        <div class="guideline-card">
+            <h3>1. Select Match</h3>
+            <p>Choose your favourite IPL match from the schedule.</p>
         </div>
 
-        <div class="card">
-            <h3>🪪 ID Proof Requirement</h3>
-            <p>Carry a valid government-issued ID proof for verification.</p>
+        <div class="guideline-card">
+            <h3>2. Choose Tickets</h3>
+            <p>Select your stand category and ticket quantity.</p>
         </div>
 
-        <div class="card">
-            <h3>🚫 Prohibited Items</h3>
-            <p>Avoid carrying sharp objects, weapons, or prohibited items.</p>
+        <div class="guideline-card">
+            <h3>3. Confirm Booking</h3>
+            <p>Enter your details and confirm your ticket booking.</p>
         </div>
 
     </div>
@@ -405,6 +478,50 @@
     <p>Designed for Web Development Activity</p>
 </footer>
 
-<script src="script.js" defer></script>
+<script src="script.js"></script>
+<script src="app.js"></script>
+
+<script>
+    // Team filter
+    document.getElementById("teamFilter").addEventListener("change", function () {
+        const selectedTeam = this.value;
+        const rows = document.querySelectorAll("#matchRows tr");
+
+        rows.forEach(function (row) {
+            const teams = row.cells[1].textContent;
+
+            row.style.display =
+                selectedTeam === "All" || teams.includes(selectedTeam)
+                ? ""
+                : "none";
+        });
+    });
+
+    // Booking confirmation
+    document.getElementById("bookingForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const match = document.getElementById("match");
+        const matchName = match.options[match.selectedIndex].text;
+
+        const bookingList = document.getElementById("bookingList");
+
+        if (bookingList.textContent.trim() === "No bookings yet.") {
+            bookingList.innerHTML = "";
+        }
+
+        const booking = document.createElement("p");
+        booking.textContent = name + " - " + matchName + " - " +
+            document.getElementById("summaryTotal").textContent;
+
+        bookingList.appendChild(booking);
+
+        showToast("Booking confirmed successfully!");
+        this.reset();
+
+    });
+</script>
+
 </body>
 </html>
