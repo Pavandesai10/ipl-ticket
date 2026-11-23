@@ -246,7 +246,8 @@
 <header>
     <h2>🏏 IPL 2026</h2>
 
-    <nav>
+        <button id="menuToggle" class="menu-toggle" 
+        aria-label="Toggle navigation">☰</button><nav id="navMenu">
         <a href="#about">About</a>
         <a href="#matches">Matches</a>
         <a href="#booking">Book Ticket</a>
@@ -378,11 +379,13 @@
             <form id="bookingForm">
 
                 <label for="match">Match</label>
-                <select id="match" required>
-                    <option value="match1">RCB vs CSK</option>
-                    <option value="match2">MI vs KKR</option>
-                    <option value="match3">CSK vs MI</option>
-                </select>
+        <select id="match" required>
+        <option value="1">CSK vs MI</option>
+        <option value="2">RCB vs KKR</option>
+        <option value="3">GT vs RR</option>
+        <option value="4">SRH vs DC</option>
+        <option value="5">LSG vs PBKS</option>
+            </select>
 
                 <label for="category">Stand Category</label>
                 <select id="category" required>
@@ -479,7 +482,7 @@
 </footer>
 
 <script src="script.js"></script>
-<script src="app.js"></script>
+<script type="module" src="app.js"></script>
 
 <script>
     // Team filter

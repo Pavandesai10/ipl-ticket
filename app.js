@@ -1,3 +1,19 @@
+import{ supabase } from "./supabase.js"
+
+async function testSupabaseMatches() {
+    const { data, error } = await supabase
+        .from("matches")
+        .select("*");
+
+    if (error) {
+        console.error("Supabase error:", error);
+        return;
+    }
+
+    console.log("Matches fetched from Supabase:", data);
+}
+
+testSupabaseMatches();
 console.log("APP JS IS LOADED");
 function showToast(message) {
     const toast = document.createElement("div");
@@ -30,12 +46,37 @@ window.scrollToBooking = function() {
 };
 showToast("Toast notification is working!");
 
+const bookingForm = document.getElementById("bookingForm");
 
+bookingForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
+    const matchId = Number(matchSelect.value);
+    const matchTitle = matchSelect.options[matchSelect.selectedIndex].text;
+    const userName = document.getElementById("name").value;
+    const tickets = Number(quantityInput.value);
+    const totalPrice = ticketPrices[categorySelect.value] * tickets;
 
+    const { data, error } = await supabase
+        .from("bookings")
+        .insert([{
+            match_id: matchId,
+            user_name: userName,
+            match_title: matchTitle,
+            tickets: tickets,
+            total_price: totalPrice
+        }]);
 
+    if (error) {
+        console.error("Booking error:", error);
+        showToast("Booking failed!");
+        return;
+    }
 
-
+    showToast("Booking confirmed successfully!");
+    bookingForm.reset();
+    updateBookingSummary();
+});
 
 
 
@@ -70,3 +111,16 @@ function updateBookingSummary() {
 matchSelect.addEventListener("change", updateBookingSummary);
 categorySelect.addEventListener("change", updateBookingSummary);
 quantityInput.addEventListener("input", updateBookingSummary);
+
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+navMenu.style.setProperty("display", "none", "important");
+
+menuToggle.onclick = function () {
+    if (navMenu.style.display === "none") {
+        navMenu.style.setProperty("display", "flex", "important");
+    } else {
+        navMenu.style.setProperty("display", "none", "important");
+    }
+};

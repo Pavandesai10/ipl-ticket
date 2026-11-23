@@ -234,3 +234,141 @@ section p {
 section li {
     margin: 8px 0;
 }
+
+#matches table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#matches th,
+#matches td {
+    padding: 12px;
+    text-align: center;
+}
+
+#matches tbody tr {
+    transition: 0.3s ease;
+}
+
+#matches tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+
+    #matches table,
+    #matches thead,
+    #matches tbody,
+    #matches th,
+    #matches td,
+    #matches tr {
+        display: block;
+    }
+
+    #matches thead {
+        display: none;
+    }
+
+    #matches tbody tr {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    }
+
+    #matches td {
+        text-align: left;
+        padding: 10px;
+    }
+
+    #matches td:last-child {
+        text-align: center;
+    }
+
+    #matches {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #matches tbody tr {
+        padding: 10px;
+    }
+
+    #matches td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+}
+
+/* Activity 8 - Hamburger Navigation */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+   @media (max-width: 768px) {
+    #navMenu {
+        display: none !important;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 12px;
+        padding: 15px 0;
+    }
+
+    #navMenu.active {
+        display: flex !important;
+    }
+
+    #navMenu a {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    header nav#navMenu {
+        display: none !important;
+    }
+
+    header nav#navMenu.active {
+        display: flex !important;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        display: grid !important;
+        grid-template-columns: 1fr auto !important;
+        align-items: center !important;
+        padding: 15px 20px !important;
+    }
+
+    header h2 {
+        margin: 0 !important;
+        grid-column: 1;
+    }
+
+    #menuToggle {
+        grid-column: 2;
+        grid-row: 1;
+        position: static !important;
+        margin: 0 !important;
+        justify-self: end;
+    }
+
+    header nav#navMenu {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+}
